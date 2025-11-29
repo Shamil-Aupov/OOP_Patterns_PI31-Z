@@ -49,11 +49,28 @@ function interact_with_animal(animalFactory $factory) {
     echo 'Звук: ' . $animal->make_sound() . '!' . PHP_EOL;
 }
 
+class RavenFactory implements AnimalFactory{
+	public function getAnimal(): Animal {
+		return new Raven();
+	}
+}
+
+function interact_with_animal(AnimalFactory $factory){
+	$animal = $factory->getAnimal();
+	echo 'Звук: ' . $animal->make_sound() . '!' . PHP_EOL;
+}
+
+
 $lion_factory = new LionFactory();
 $monkey_factory = new MonkeyFactory();
 $elephant_factory = new ElephantFactory();
+$raven_factory = new RavenFactory();
 
 interact_with_animal($lion_factory);     # Вывод: Звук: Рычание!
 interact_with_animal($monkey_factory);   # Вывод: Звук: Визг!
 interact_with_animal($elephant_factory); # Вывод: Звук: Трубление!
+interact_with_animal($raven_factory); # Вывод: Звук: Карканье!
 
+
+
+?>
