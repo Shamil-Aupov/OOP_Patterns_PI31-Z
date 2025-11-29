@@ -1,31 +1,54 @@
 <? php
 
-abstract class animal {
-    private string $text;
-
-    public function __construct(string $text)
-{
-    $this->text = $text
+interface animal {
+    public function make_sound (): string;
 }
 
+class lion implements animal {
     public function make_sound (): string {
-        return $this->text
-    }
-}
-
-class lion { 
-    public function make_sound(): string {
         return 'Рычание';
     }
 }
 
+class Monkey implements animal{
+    public function make_sound (): string {
+        return 'Визг';
+    }
+}
 
+class Elephant implements animal{
+    public function make_sound (): string {
+        return 'Трубление';
+    }
+}
 
-lion_factory = LionFactory()
-monkey_factory = MonkeyFactory()
-elephant_factory = ElephantFactory()
+interface animalFactory {
+     public function getanimal() : Animal;
+}
 
-interact_with_animal(lion_factory)     # Вывод: Звук: Рычание!
-interact_with_animal(monkey_factory)   # Вывод: Звук: Визг!
-interact_with_animal(elephant_factory) # Вывод: Звук: Трубление!
+class LionFactory implements animalFactory {
+    public function getanimal() : Animal {
+        return new Lion();
+    }
+}
+
+class MonkeyFactory implements animalFactory {
+    public function getanimal() : Animal {
+        return new Monkey();
+    }
+}
+
+class ElephantFactory implements animalFactory {
+    public function getanimal() : Animal {
+        return new Elephant();
+    }
+}
+
+lion_factory = LionFactory();
+monkey_factory = MonkeyFactory();
+elephant_factory = ElephantFactory();
+
+interact_with_animal(lion_factory);     # Вывод: Звук: Рычание!
+interact_with_animal(monkey_factory);   # Вывод: Звук: Визг!
+interact_with_animal(elephant_factory); # Вывод: Звук: Трубление!
 
