@@ -55,11 +55,6 @@ class RavenFactory implements AnimalFactory{
 	}
 }
 
-function interact_with_animal(AnimalFactory $factory){
-	$animal = $factory->getAnimal();
-	echo 'Звук: ' . $animal->make_sound() . '!' . PHP_EOL;
-}
-
 
 $lion_factory = new LionFactory();
 $monkey_factory = new MonkeyFactory();
