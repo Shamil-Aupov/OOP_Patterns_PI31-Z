@@ -44,11 +44,16 @@ class ElephantFactory implements animalFactory {
     }
 }
 
-lion_factory = LionFactory();
-monkey_factory = MonkeyFactory();
-elephant_factory = ElephantFactory();
+function interact_with_animal(animalFactory $factory) {
+    $animal = $factory->getanimal();
+    echo 'Звук: ' . $animal->make_sound() . '!' . PHP_EOL;
+}
 
-interact_with_animal(lion_factory);     # Вывод: Звук: Рычание!
-interact_with_animal(monkey_factory);   # Вывод: Звук: Визг!
-interact_with_animal(elephant_factory); # Вывод: Звук: Трубление!
+$lion_factory = new LionFactory();
+$monkey_factory = new MonkeyFactory();
+$elephant_factory = new ElephantFactory();
+
+interact_with_animal($lion_factory);     # Вывод: Звук: Рычание!
+interact_with_animal($monkey_factory);   # Вывод: Звук: Визг!
+interact_with_animal($elephant_factory); # Вывод: Звук: Трубление!
 
