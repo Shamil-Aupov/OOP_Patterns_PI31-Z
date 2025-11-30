@@ -31,3 +31,7 @@ $settings1->difficulty = 'Hard';
 
 echo $settings2->volume . "\n";      
 echo $settings2->difficulty . "\n"; 
+
+
+
+?>
